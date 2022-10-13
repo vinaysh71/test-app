@@ -1,0 +1,23 @@
+<!-- <p>works works!</p> -->
+
+<ng-container *ngFor="let work of worksList$ | async">
+  <div>
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title>{{ work.title }}</mat-card-title>
+        <mat-card-subtitle>{{
+          work.authors | authorsJoin: ", "
+        }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-title-group> </mat-card-title-group>
+      <mat-card-content>
+        <button (click)="openDialog('abstract', work)" mat-stroked-button>
+          Abstract</button
+        >&nbsp;
+        <button (click)="openDialog('full', work)" mat-stroked-button>
+          Full Text
+        </button>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</ng-container>
